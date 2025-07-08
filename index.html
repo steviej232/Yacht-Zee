@@ -4,89 +4,144 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yacht-Zee: Dice Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #146e8b;
+      --light: #f0faff;
+      --accent: #e6f7fb;
+      --dark: #0b3c4c;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0faff;
-      color: #0b3c4c;
+      font-family: 'Rubik', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      scroll-behavior: smooth;
     }
+
     header {
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 4rem 1rem 3rem;
       text-align: center;
-      padding: 3rem 1rem;
-      background-color: #146e8b;
-      color: #fff;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
     }
+
     header h1 {
       font-size: 3rem;
-      margin-bottom: 0.5rem;
+      margin: 0 0 0.5rem;
     }
+
     header p {
-      font-size: 1.25rem;
-      margin: 0 auto;
+      font-size: 1.2rem;
       max-width: 600px;
-    }
-    section {
-      padding: 2rem 1rem;
-      max-width: 1000px;
       margin: 0 auto;
+      opacity: 0.9;
     }
+
+    section {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
     }
+
     .feature {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem;
       text-align: center;
+      transition: transform 0.25s ease;
     }
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
     .feature img {
       width: 100%;
-      height: auto;
-      border-radius: 6px;
-      margin-bottom: 0.5rem;
+      max-height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
     }
+
     .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
     }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
     .cta {
       text-align: center;
-      padding: 2rem;
-      background-color: #e6f7fb;
+      background-color: var(--accent);
+      padding: 3rem 1rem;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
     }
+
     .cta a {
       display: inline-block;
-      background-color: #146e8b;
-      color: #fff;
+      background-color: var(--primary);
+      color: var(--white);
       text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
+      padding: 0.9rem 1.8rem;
+      border-radius: 8px;
       font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-    .cta img {
-      width: 150px;
-      height: auto;
       margin-top: 1rem;
+      transition: background-color 0.3s ease;
     }
+
+    .cta a:hover {
+      background-color: #0c4f66;
+    }
+
+    .cta img {
+      width: 160px;
+      margin-top: 2rem;
+      border-radius: 8px;
+    }
+
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #146e8b;
-      color: #fff;
+      padding: 1.5rem 1rem;
+      background-color: var(--primary);
+      color: var(--white);
       font-size: 0.9rem;
+      border-top: 4px solid #0e5b73;
     }
   </style>
 </head>
