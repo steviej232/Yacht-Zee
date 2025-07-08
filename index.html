@@ -31,7 +31,14 @@
     .stat p { margin:0; font-size:0.9rem; }
     /* Feature carousel */
     .carousel-container { position:relative; }
-    .features-scroll { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:1rem; padding:1rem 0; }
+    .features-scroll {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+      padding: 1rem 0;
+      -webkit-overflow-scrolling: touch;
+    }
     .feature { min-width:240px; max-width:260px; background:var(--white); border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05); padding:1rem; scroll-snap-align:start; text-align:center; }
     .feature img { width:100%; max-height:200px; object-fit:contain; margin-top:0.75rem; border-radius:8px; }
     .carousel-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(20,110,139,0.85); color:white; border:none; font-size:1.25rem; padding:0.4rem 0.8rem; cursor:pointer; border-radius:6px; }
@@ -140,12 +147,11 @@
   <section id="instructions" class="visible">
     <h2>🎲 Yahtzee Game Instructions</h2>
     <div class="instructions">
-      <h3>Players & Objective</h3>
-      <p><strong>Players:</strong> 1+ (best with 2–6)<br><strong>Objective:</strong> Score most points by rolling combinations with five dice across 13 categories.</p>
+<h3>Objective</h3>
+<p>Score the most points by rolling combinations with five dice across 13 categories.</p>
 
-      <h3>Setup & Gameplay</h3>
-      <p><strong>Setup:</strong> Scorecard, five 6‑sided dice, pen/pencil.</p>
-      <p><strong>Turns:</strong> 13 per player. Each turn, roll up to 3 times—roll all dice first, then optionally re‑roll any. Choose one category per turn and record your score (can be 0).</p>
+<h3>Gameplay</h3>
+<p>Each player takes 13 turns. Roll up to 3 times per turn, then choose a scoring category. Record your score—even if it's zero. Each category can be used once.</p>
 
       <h3>Scoring</h3>
       <table>
