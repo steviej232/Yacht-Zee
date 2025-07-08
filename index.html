@@ -59,14 +59,17 @@
       margin-bottom: 2rem;
     }
 
+    .carousel-container {
+      position: relative;
+    }
+
     .features-scroll {
       display: flex;
       overflow-x: auto;
-      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
       gap: 2rem;
       padding: 1rem;
-      scroll-padding: 1rem;
-      animation: autoScroll 30s linear infinite;
+      scroll-snap-type: x mandatory;
     }
 
     .feature {
@@ -81,16 +84,6 @@
       text-align: center;
     }
 
-    .feature h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
-
-    .feature p {
-      font-size: 0.95rem;
-      color: #333;
-    }
-
     .feature img {
       width: 100%;
       max-height: 350px;
@@ -100,9 +93,26 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    @keyframes autoScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .carousel-btn {
+      position: absolute;
+      top: 40%;
+      transform: translateY(-50%);
+      background: rgba(20, 110, 139, 0.85);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 0.3rem 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      z-index: 10;
+    }
+
+    .carousel-btn.left {
+      left: 0;
+    }
+
+    .carousel-btn.right {
+      right: 0;
     }
 
     .gallery {
@@ -131,23 +141,13 @@
       border-top-right-radius: 40px;
     }
 
-    .cta a {
-      display: inline-block;
-      background-color: var(--primary);
-      color: var(--white);
-      text-decoration: none;
-      padding: 0.9rem 1.8rem;
-      border-radius: 8px;
-      font-size: 1.1rem;
+    .cta img.badge {
+      width: 160px;
       margin-top: 1rem;
-      transition: background-color 0.3s ease;
+      cursor: pointer;
     }
 
-    .cta a:hover {
-      background-color: #0c4f66;
-    }
-
-    .cta img {
+    .cta img.logo {
       width: 160px;
       margin-top: 2rem;
       border-radius: 8px;
@@ -166,6 +166,11 @@
       .feature img {
         max-height: 200px;
       }
+
+      .carousel-btn {
+        display: none;
+      }
+
       .gallery img {
         width: 90%;
       }
@@ -181,47 +186,51 @@
 
   <section>
     <h2>Features</h2>
-    <div class="features-scroll">
-      <div class="feature">
-        <h3>Online Leaderboards</h3>
-        <p>See how you rank against players around the world in real-time.</p>
-        <img src="Leaderboard.png" alt="Leaderboard Screenshot">
+    <div class="carousel-container">
+      <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#8592;</button>
+      <div class="features-scroll" id="carousel">
+        <div class="feature">
+          <h3>Online Leaderboards</h3>
+          <p>See how you rank against players around the world in real-time.</p>
+          <img src="Leaderboard.png" alt="Leaderboard Screenshot">
+        </div>
+        <div class="feature">
+          <h3>Unlockable Achievements</h3>
+          <p>Complete milestones and quests to unlock exclusive rewards.</p>
+          <img src="Achievement.png" alt="Achievements Screenshot">
+        </div>
+        <div class="feature">
+          <h3>Daily Quests & Milestones</h3>
+          <p>New challenges every day to keep the adventure going.</p>
+          <img src="XP.png" alt="Daily Quests Screenshot">
+        </div>
+        <div class="feature">
+          <h3>Themes & Skins</h3>
+          <p>Customize your game with a variety of visual styles and boards.</p>
+          <img src="Winter.png" alt="Themes Screenshot">
+        </div>
+        <div class="feature">
+          <h3>Custom Game Modes</h3>
+          <p>Play classic, turbo, or challenge-based variants tailored to your style.</p>
+          <img src="CustomMode.png" alt="Custom Mode Screenshot">
+        </div>
+        <div class="feature">
+          <h3>Cross-Platform Sync</h3>
+          <p>Switch devices without losing progress — sync across iOS and web.</p>
+          <img src="CloudSync.png" alt="Sync Screenshot">
+        </div>
+        <div class="feature">
+          <h3>Multiplayer Mode</h3>
+          <p>Challenge friends or match with players around the globe.</p>
+          <img src="Multiplayer.png" alt="Multiplayer Screenshot">
+        </div>
+        <div class="feature">
+          <h3>Special Events</h3>
+          <p>Join limited-time events with leaderboard bonuses and prizes.</p>
+          <img src="Event.png" alt="Special Event Screenshot">
+        </div>
       </div>
-      <div class="feature">
-        <h3>Unlockable Achievements</h3>
-        <p>Complete milestones and quests to unlock exclusive rewards.</p>
-        <img src="Achievement.png" alt="Achievements Screenshot">
-      </div>
-      <div class="feature">
-        <h3>Daily Quests & Milestones</h3>
-        <p>New challenges every day to keep the adventure going.</p>
-        <img src="XP.png" alt="Daily Quests Screenshot">
-      </div>
-      <div class="feature">
-        <h3>Themes & Skins</h3>
-        <p>Customize your game with a variety of visual styles and boards.</p>
-        <img src="Winter.png" alt="Themes Screenshot">
-      </div>
-      <div class="feature">
-        <h3>Custom Game Modes</h3>
-        <p>Play classic, turbo, or challenge-based variants tailored to your style.</p>
-        <img src="CustomMode.png" alt="Custom Mode Screenshot">
-      </div>
-      <div class="feature">
-        <h3>Cross-Platform Sync</h3>
-        <p>Switch devices without losing progress — sync across iOS and web.</p>
-        <img src="CloudSync.png" alt="Sync Screenshot">
-      </div>
-      <div class="feature">
-        <h3>Multiplayer Mode</h3>
-        <p>Challenge friends or match with players around the globe.</p>
-        <img src="Multiplayer.png" alt="Multiplayer Screenshot">
-      </div>
-      <div class="feature">
-        <h3>Special Events</h3>
-        <p>Join limited-time events with leaderboard bonuses and prizes.</p>
-        <img src="Event.png" alt="Special Event Screenshot">
-      </div>
+      <button class="carousel-btn right" onclick="scrollCarousel(1)">&#8594;</button>
     </div>
   </section>
 
@@ -237,14 +246,29 @@
   <section class="cta">
     <h2>Download Now</h2>
     <p>Available exclusively on the App Store.</p>
-    <a href="#" target="_blank">Get it on the App Store</a>
+    <a href="https://apps.apple.com" target="_blank">
+      <img src="appstore-badge.svg" alt="Download on the App Store" class="badge">
+    </a>
     <br>
-    <img src="logo.png" alt="Yacht-Zee Logo">
+    <img src="logo.png" alt="Yacht-Zee Logo" class="logo">
   </section>
 
   <footer>
     &copy; 2025 Yacht-Zee. All rights reserved.
   </footer>
+
+  <script>
+    const carousel = document.getElementById('carousel');
+    let scrollInterval = setInterval(() => {
+      carousel.scrollBy({ left: 320, behavior: 'smooth' });
+    }, 4000);
+
+    function scrollCarousel(direction) {
+      clearInterval(scrollInterval);
+      const offset = direction * 320;
+      carousel.scrollBy({ left: offset, behavior: 'smooth' });
+    }
+  </script>
 
 </body>
 </html>
