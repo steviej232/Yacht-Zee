@@ -8,13 +8,13 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #bde0fe, #a2d2ff);
-      color: #003049;
+      background: #f0faff;
+      color: #0b3c4c;
     }
     header {
       text-align: center;
       padding: 3rem 1rem;
-      background-color: #003049;
+      background-color: #146e8b;
       color: #fff;
     }
     header h1 {
@@ -28,45 +28,65 @@
     }
     section {
       padding: 2rem 1rem;
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
     }
     .features {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
     .feature {
-      background: #fff;
+      background: #ffffff;
       border-radius: 8px;
       padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .feature img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
     .cta {
       text-align: center;
       padding: 2rem;
-      background-color: #edf6f9;
+      background-color: #e6f7fb;
     }
     .cta a {
       display: inline-block;
-      background-color: #0077b6;
+      background-color: #146e8b;
       color: #fff;
       text-decoration: none;
       padding: 0.75rem 1.5rem;
       border-radius: 5px;
       font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .cta img {
+      width: 150px;
+      height: auto;
+      margin-top: 1rem;
     }
     footer {
       text-align: center;
       padding: 1rem;
-      background-color: #003049;
+      background-color: #146e8b;
       color: #fff;
       font-size: 0.9rem;
-    }
-    @media (max-width: 600px) {
-      .features {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
@@ -81,21 +101,34 @@
     <h2>Features</h2>
     <div class="features">
       <div class="feature">
+        <img src="Leaderboard.png" alt="Leaderboard Screenshot">
         <h3>Online Leaderboards</h3>
         <p>See how you rank against players around the world in real-time.</p>
       </div>
       <div class="feature">
+        <img src="Achievement.png" alt="Achievements Screenshot">
         <h3>Unlockable Achievements</h3>
         <p>Complete milestones and quests to unlock exclusive rewards.</p>
       </div>
       <div class="feature">
+        <img src="XP.png" alt="Daily Quests Screenshot">
         <h3>Daily Quests & Milestones</h3>
         <p>New challenges every day to keep the adventure going.</p>
       </div>
       <div class="feature">
+        <img src="Winter.png" alt="Themes Screenshot">
         <h3>Themes & Skins</h3>
         <p>Customize your game with a variety of visual styles and boards.</p>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>App Screenshots</h2>
+    <div class="gallery">
+      <img src="Home.png" alt="Game screenshot 1">
+      <img src="Game.png" alt="Game screenshot 2">
+      <img src="Pirate.png" alt="Game screenshot 3">
     </div>
   </section>
 
@@ -103,6 +136,8 @@
     <h2>Download Now</h2>
     <p>Available exclusively on the App Store.</p>
     <a href="#" target="_blank">Get it on the App Store</a>
+    <br>
+    <img src="logo.png" alt="Yacht-Zee Logo">
   </section>
 
   <footer>
