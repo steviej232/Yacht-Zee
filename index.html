@@ -14,23 +14,64 @@
       --white: #ffffff;
     }
     * { box-sizing: border-box; }
-    body { margin:0; font-family:'Rubik',sans-serif; background:var(--light); color:var(--dark); scroll-behavior: smooth; }
-    nav { position: sticky; top:0; background: var(--white); display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; padding:0.75rem; box-shadow:0 2px 4px rgba(0,0,0,0.1); z-index:100;}
-    nav a { color:var(--dark); text-decoration:none; font-weight:600; font-size:0.9rem; }
-    nav a:hover { color:var(--primary); }
-    header { background:var(--primary); color:var(--white); padding:3rem 1rem 2rem; text-align:center; border-bottom-left-radius:30px; border-bottom-right-radius:30px; }
-    header h1 { font-size:2.5rem; margin:0 0 0.5rem; }
-    header p { font-size:1rem; max-width:500px; margin:auto; opacity:0.9; }
-    section { max-width:900px; margin:2rem auto; padding:0 1rem; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
-    section.visible { opacity:1; transform:translateY(0); }
-    h2 { font-size:1.75rem; text-align:center; margin-bottom:1.5rem; }
-    /* Stats */
-    .stats { display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; margin-bottom:1.5rem; }
-    .stat { text-align:center; }
-    .stat h3 { font-size:1.5rem; margin:0; color:var(--primary); }
-    .stat p { margin:0; font-size:0.9rem; }
-    /* Feature carousel */
-    .carousel-container { position:relative; }
+    body {
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      scroll-behavior: smooth;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0.75rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+    nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    nav a:hover {
+      color: var(--primary);
+    }
+    header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1rem;
+      max-width: 500px;
+      margin: auto;
+      opacity: 0.9;
+    }
+    section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h2 {
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Features carousel */
     .features-scroll {
       display: flex;
       overflow-x: auto;
@@ -39,75 +80,97 @@
       padding: 1rem 0;
       -webkit-overflow-scrolling: touch;
     }
-    .feature { min-width:240px; max-width:260px; background:var(--white); border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05); padding:1rem; scroll-snap-align:start; text-align:center; }
-    .feature img { width:100%; max-height:200px; object-fit:contain; margin-top:0.75rem; border-radius:8px; }
-    <div id="carousel" class="features-scroll">
-  <div class="feature">
-    <h3>Online Leaderboards</h3>
-    <p>See how you rank against players around the world in real-time.</p>
-    <img src="Leaderboard.png" alt="Leaderboard Screenshot">
-  </div>
-  <div class="feature">
-    <h3>Unlockable Achievements</h3>
-    <p>Complete milestones and quests to unlock exclusive rewards.</p>
-    <img src="Achievement.png" alt="Achievements Screenshot">
-  </div>
-  <div class="feature">
-    <h3>Daily Quests & Milestones</h3>
-    <p>New challenges every day to keep the adventure going.</p>
-    <img src="XP.png" alt="Daily Quests Screenshot">
-  </div>
-  <div class="feature">
-    <h3>Themes & Skins</h3>
-    <p>Customize your game with a variety of visual styles and boards.</p>
-    <img src="Winter.png" alt="Themes Screenshot">
-  </div>
-</div>
+    .feature {
+      min-width: 240px;
+      flex: 0 0 auto;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 1rem;
+      scroll-snap-align: start;
+      text-align: center;
+    }
+    .feature img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      margin-top: 0.75rem;
+      border-radius: 8px;
+    }
 
-    .carousel-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(20,110,139,0.85); color:white; border:none; font-size:1.25rem; padding:0.4rem 0.8rem; cursor:pointer; border-radius:6px; }
-    .carousel-btn.left { left:5px; }
-    .carousel-btn.right { right:5px; }
-    /* Gallery */
-    .gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; }
-    .gallery img { width:100%; max-width:280px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08); transition:transform 0.3s ease; }
-    .gallery img:hover { transform:scale(1.02); }
-    /* How it works */
-    .how-it-works { display:flex; flex-wrap:wrap; justify-content:space-around; gap:1rem; text-align:center; margin-bottom:2rem; }
-    .step { flex:1 1 150px; }
-    .step img { width:60px; margin-bottom:0.5rem; }
-    .step p { margin:0; font-size:0.9rem; }
-    /* Testimonials */
-    .testimonials { background:var(--accent); padding:1.5rem 1rem; border-radius:20px; margin-bottom:2rem; }
-    .testimonial { max-width:500px; margin:0.75rem auto; font-style:italic; font-size:0.95rem; }
-    /* FAQ */
-    .faq-item { margin-bottom:0.75rem; }
-    .faq-item h4 { margin:0; cursor:pointer; font-size:1rem; }
-    .faq-item p { margin:0.5rem 0 0 1rem; font-size:0.9rem; display:none; }
-    .faq-item.open p { display:block; }
+    /* Screenshot scroll */
+    .gallery-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    .gallery-scroll img {
+      flex: 0 0 auto;
+      width: 280px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    /* CTA section */
+    .cta {
+      text-align: center;
+      background: var(--accent);
+      padding: 2.5rem 1rem;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+    }
+    .cta img.logo {
+      width: 140px;
+      margin-bottom: 1rem;
+    }
+    .cta a.store-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.8rem;
+    }
+
     /* Instructions */
-    .instructions { background:var(--white); padding:1rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05); margin-bottom:2rem; font-size:0.9rem; }
-    .instructions h3 { margin-top:0; }
-    .instructions table { width:100%; border-collapse:collapse; font-size:0.85rem; margin-top:0.5rem; }
-    .instructions th, td { border:1px solid #ccc; padding:4px; }
-    /* CTA & footer */
-    .cta { text-align:center; background:var(--accent); padding:2.5rem 1rem; border-top-left-radius:30px; border-top-right-radius:30px; }
-    .cta img.badge { width:140px; margin-top:1rem; }
-    .cta img.logo { width:140px; margin-top:1.5rem; border-radius:6px; }
-    footer { text-align:center; padding:1rem; background:var(--primary); color:var(--white); font-size:0.8rem; }
-    .top-btn { position:fixed; bottom:20px; right:20px; background:var(--primary); color:white; border:none; padding:0.6rem 1rem; border-radius:6px; cursor:pointer; display:none; }
-    @media(min-width:600px){
-      .carousel-btn { font-size:1.5rem; padding:0.5rem 1rem; }
-      .feature { max-width:300px; }
-      .gallery img { max-width:320px; }
+    .instructions {
+      background: var(--white);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      font-size: 0.9rem;
+    }
+    .instructions table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+    .instructions th, td {
+      border: 1px solid #ccc;
+      padding: 4px;
+      text-align: left;
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="#stats">Stats</a><a href="#features">Features</a><a href="#gallery">Screenshots</a>
-    <a href="#how">How It Works</a><a href="#testimonials">Testimonials</a>
-    <a href="#faq">FAQ</a><a href="#instructions">Yahtzee Rules</a><a href="#download">Download</a>
+    <a href="#features">Features</a>
+    <a href="#screenshots">Screenshots</a>
+    <a href="#instructions">Yahtzee Rules</a>
+    <a href="#download">Download</a>
   </nav>
 
   <header>
@@ -115,108 +178,76 @@
     <p>Set sail on a thrilling yacht-themed dice adventure! Compete online, earn achievements, and conquer daily quests!</p>
   </header>
 
-  <section id="stats" class="visible">
-    <div class="stats">
-      <div class="stat"><h3>500K+</h3><p>Downloads</p></div>
-      <div class="stat"><h3>4.8★</h3><p>Rating</p></div>
-      <div class="stat"><h3>1M+</h3><p>Games Played</p></div>
-    </div>
-  </section>
-
-  <section id="features" class="visible">
+  <section id="features">
     <h2>Features</h2>
-    <div class="carousel-container">
-      <button class="carousel-btn left" onclick="scrollCarousel(-1)">←</button>
-      <div class="features-scroll" id="carousel">
-        <!-- feature cards as above -->
+    <div class="features-scroll">
+      <div class="feature">
+        <h3>Online Leaderboards</h3>
+        <p>See how you rank against players around the world in real-time.</p>
+        <img src="Leaderboard.png" alt="Leaderboard Screenshot">
       </div>
-      <button class="carousel-btn right" onclick="scrollCarousel(1)">→</button>
+      <div class="feature">
+        <h3>Unlockable Achievements</h3>
+        <p>Complete milestones and quests to unlock exclusive rewards.</p>
+        <img src="Achievement.png" alt="Achievements Screenshot">
+      </div>
+      <div class="feature">
+        <h3>Daily Quests & Milestones</h3>
+        <p>New challenges every day to keep the adventure going.</p>
+        <img src="XP.png" alt="Daily Quests Screenshot">
+      </div>
+      <div class="feature">
+        <h3>Themes & Skins</h3>
+        <p>Customize your game with a variety of visual styles and boards.</p>
+        <img src="Winter.png" alt="Themes Screenshot">
+      </div>
     </div>
   </section>
 
-  <section id="gallery" class="visible">
+  <section id="screenshots">
     <h2>Screenshots</h2>
-    <div class="gallery">
-      <img src="Home.png" alt="">
-      <img src="Game.png" alt="">
-      <img src="Pirate.png" alt="">
+    <div class="gallery-scroll">
+      <img src="Home.png" alt="Home Screenshot">
+      <img src="Game.png" alt="Game Screenshot">
+      <img src="Pirate.png" alt="Pirate Theme Screenshot">
     </div>
   </section>
 
-  <section id="how" class="visible">
-    <h2>How It Works</h2>
-    <div class="how-it-works">
-      <div class="step"><img src="icon-roll.png" alt=""><p><strong>Roll & Play:</strong> Roll up to 3 times per turn</p></div>
-      <div class="step"><img src="icon-quest.png" alt=""><p><strong>Complete Quests:</strong> Earn rewards daily</p></div>
-      <div class="step"><img src="icon-leader.png" alt=""><p><strong>Climb Leaderboards:</strong> Challenge friends & global players</p></div>
-    </div>
-  </section>
-
-  <section id="testimonials" class="testimonials visible">
-    <h2>What Players Say</h2>
-    <div class="testimonial">“Absolutely addicting—my go-to game every day!”</div>
-    <div class="testimonial">“Love the themes & events, keeps me coming back!”</div>
-  </section>
-
-  <section id="faq" class="visible">
-    <h2>FAQ</h2>
-    <div class="faq">
-      <div class="faq-item"><h4>Can I play offline?</h4><p>Yes—leaderboards and events need internet.</p></div>
-      <div class="faq-item"><h4>Is the app free?</h4><p>Yes, with optional in‑app purchases.</p></div>
-      <div class="faq-item"><h4>Android version?</h4><p>Coming soon—stay tuned!</p></div>
-    </div>
-  </section>
-
-  <section id="instructions" class="visible">
+  <section id="instructions">
     <h2>🎲 Yahtzee Game Instructions</h2>
     <div class="instructions">
-<h3>Objective</h3>
-<p>Score the most points by rolling combinations with five dice across 13 categories.</p>
+      <h3>Objective</h3>
+      <p>Score the most points by rolling combinations with five dice across 13 categories.</p>
 
-<h3>Gameplay</h3>
-<p>Each player takes 13 turns. Roll up to 3 times per turn, then choose a scoring category. Record your score—even if it's zero. Each category can be used once.</p>
+      <h3>Gameplay</h3>
+      <p>Each player takes 13 turns. Roll up to 3 times per turn, then choose a scoring category. Record your score—even if it's zero. Each category can be used once.</p>
 
       <h3>Scoring</h3>
       <table>
         <tr><th>Category</th><th>Description</th><th>Score</th></tr>
         <tr><td>Three of a Kind</td><td>At least 3 same dice</td><td>Sum of all 5</td></tr>
         <tr><td>Four of a Kind</td><td>At least 4 same dice</td><td>Sum of all 5</td></tr>
-        <tr><td>Full House</td><td>3+2</td><td>25</td></tr>
-        <tr><td>Small Straight</td><td>4‑in‑a‑row</td><td>30</td></tr>
-        <tr><td>Large Straight</td><td>5‑in‑a‑row</td><td>40</td></tr>
-        <tr><td>Yahtzee</td><td>All 5 same</td><td>50 (+100 extra)</td></tr>
-        <tr><td>Chance</td><td>Any combo</td><td>Sum of all</td></tr>
+        <tr><td>Full House</td><td>3 of a kind + a pair</td><td>25</td></tr>
+        <tr><td>Small Straight</td><td>Sequence of 4 (e.g., 2-3-4-5)</td><td>30</td></tr>
+        <tr><td>Large Straight</td><td>Sequence of 5 (e.g., 1-2-3-4-5)</td><td>40</td></tr>
+        <tr><td>Yahtzee</td><td>All 5 dice the same</td><td>50</td></tr>
+        <tr><td>Chance</td><td>Any combo</td><td>Sum of all 5</td></tr>
       </table>
-      <p><strong>Upper bonus:</strong> ≥63 = +35 points.</p>
+      <p><strong>Upper Section Bonus:</strong> Score 63 or more across Ones–Sixes to get +35 bonus points.</p>
+      <p><strong>Extra Yahtzees:</strong> Earn 100 bonus points for each extra Yahtzee (after the first).</p>
     </div>
   </section>
 
-  <section id="download" class="cta visible">
+  <section id="download" class="cta">
     <h2>Download Now</h2>
-    <a href="https://apps.apple.com" target="_blank"><img src="appstore-badge.svg" alt="Download" class="badge"></a>
-    <img src="logo.png" alt="Yacht‑Zee Logo" class="logo">
+    <img src="logo.png" alt="Yacht-Zee Logo" class="logo">
+    <br>
+    <a href="https://apps.apple.com" target="_blank" class="store-btn">Get it on the App Store</a>
   </section>
 
   <footer>
-    &copy; 2025 Yacht‑Zee · Privacy · Terms
+    &copy; 2025 Yacht-Zee. All rights reserved.
   </footer>
-  <button class="top-btn" onclick="scrollToTop()">↑ Top</button>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('section'), topBtn = document.querySelector('.top-btn');
-      window.addEventListener('scroll', () => {
-        sections.forEach(sec => {
-          if (window.scrollY + window.innerHeight > sec.offsetTop + 100) sec.classList.add('visible');
-        });
-        topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-      });
-      document.querySelectorAll('.faq-item h4').forEach(h => h.addEventListener('click', () => h.parentNode.classList.toggle('open')));
-    });
-    const carousel = document.getElementById('carousel');
-    function scrollCarousel(dir) { carousel.scrollBy({left: dir * 300, behavior:'smooth'});}
-    function scrollToTop() { window.scrollTo({top:0, behavior:'smooth'}); }
-  </script>
 
 </body>
 </html>
