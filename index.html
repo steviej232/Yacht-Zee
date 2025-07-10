@@ -24,30 +24,6 @@
       color: var(--dark);
     }
 
-    /* Header parallax effect */
-    header {
-      background: var(--primary);
-      color: var(--white);
-      padding: 3rem 1rem 2rem;
-      text-align: center;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      animation: fadeIn 1s ease-out;
-    }
-    header p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: auto;
-      opacity: 0.95;
-      animation: fadeIn 1.2s ease-out;
-    }
-
     nav {
       position: sticky;
       top: 0;
@@ -69,6 +45,27 @@
       color: var(--primary);
     }
 
+    header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      animation: fadeIn 1s ease-out;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+      opacity: 0.95;
+      animation: fadeIn 1.2s ease-out;
+    }
+
     section {
       max-width: 1000px;
       margin: 2rem auto;
@@ -82,7 +79,6 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Features carousel */
     .features-scroll {
       display: flex;
       overflow-x: auto;
@@ -110,7 +106,6 @@
       border-radius: 12px;
     }
 
-    /* Screenshot scroll */
     .gallery-container {
       position: relative;
     }
@@ -141,7 +136,6 @@
       animation: bounce 1.5s infinite;
     }
 
-    /* CTA section */
     .cta {
       text-align: center;
       background: var(--accent);
@@ -185,23 +179,25 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       font-size: 1rem;
     }
+
     .instructions table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.95rem;
       margin-top: 1rem;
     }
+
     .instructions th, td {
       border: 1px solid #ccc;
       padding: 6px;
       text-align: left;
     }
 
-    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     @keyframes bounce {
       0%, 100% { transform: translateX(0); }
       50% { transform: translateX(10px); }
@@ -216,93 +212,185 @@
 </head>
 <body>
 
-  <nav>
-    <a href="#features">Features</a>
-    <a href="#screenshots">Screenshots</a>
-    <a href="#instructions">Yahtzee Rules</a>
-    <a href="#download">Download</a>
-  </nav>
+<nav>
+  <a href="#features">Features</a>
+  <a href="#screenshots">Screenshots</a>
+  <a href="#instructions">Yahtzee Rules</a>
+  <a href="#download">Download</a>
+</nav>
 
-  <header>
-    <h1>Yacht-Zee: Dice Games</h1>
-    <p>Set sail on a thrilling yacht-themed dice adventure! Compete online, earn achievements, and conquer daily quests!</p>
-  </header>
+<header>
+  <h1>Yacht-Zee: Dice Games</h1>
+  <p>Set sail on a thrilling yacht-themed dice adventure! Compete online, earn achievements, and conquer daily quests!</p>
+</header>
 
-  <section id="features">
-    <h2>Features</h2>
-    <div class="features-scroll">
-      <div class="feature">
-        <h3>Online Leaderboards</h3>
-        <p>See how you rank against players around the world in real-time.</p>
-        <img src="Leaderboard.png" alt="Leaderboard Screenshot">
-      </div>
-      <div class="feature">
-        <h3>Unlockable Achievements</h3>
-        <p>Complete milestones and quests to unlock exclusive rewards.</p>
-        <img src="Achievement.png" alt="Achievements Screenshot">
-      </div>
-      <div class="feature">
-        <h3>Daily Quests & Milestones</h3>
-        <p>New challenges every day to keep the adventure going.</p>
-        <img src="XP.png" alt="Daily Quests Screenshot">
-      </div>
-      <div class="feature">
-        <h3>Themes & Skins</h3>
-        <p>Customize your game with a variety of visual styles and boards.</p>
-        <img src="Winter.png" alt="Themes Screenshot">
-      </div>
+<section id="features">
+  <h2>Features</h2>
+  <div class="features-scroll">
+    <div class="feature">
+      <h3>Online Leaderboards</h3>
+      <p>See how you rank against players around the world in real-time.</p>
+      <img src="Leaderboard.png" alt="Leaderboard Screenshot">
     </div>
-  </section>
-
-  <section id="screenshots">
-    <h2>Screenshots</h2>
-    <div class="swipe-indicator">⬅️ swipe ➡️</div>
-    <div class="gallery-container">
-      <div class="gallery-scroll">
-        <img src="1.png" alt="Home Screenshot">
-        <img src="2.png" alt="Skins Screenshot">
-        <img src="3.png" alt="Battle Captain Screenshot">
-      </div>
+    <div class="feature">
+      <h3>Unlockable Achievements</h3>
+      <p>Complete milestones and quests to unlock exclusive rewards.</p>
+      <img src="Achievement.png" alt="Achievements Screenshot">
     </div>
-  </section>
-
-  <section id="instructions">
-    <h2>🎲 Yahtzee Game Instructions</h2>
-    <div class="instructions">
-      <h3>Objective</h3>
-      <p>Score the most points by rolling combinations with five dice across 13 categories.</p>
-
-      <h3>Gameplay</h3>
-      <p>Each player takes 13 turns. Roll up to 3 times per turn, then choose a scoring category. Record your score—even if it's zero. Each category can be used once.</p>
-
-      <h3>Scoring</h3>
-      <table>
-        <tr><th>Category</th><th>Description</th><th>Score</th></tr>
-        <tr><td>Three of a Kind</td><td>At least 3 same dice</td><td>Sum of all 5</td></tr>
-        <tr><td>Four of a Kind</td><td>At least 4 same dice</td><td>Sum of all 5</td></tr>
-        <tr><td>Full House</td><td>3 of a kind + a pair</td><td>25</td></tr>
-        <tr><td>Small Straight</td><td>Sequence of 4 (e.g., 2-3-4-5)</td><td>30</td></tr>
-        <tr><td>Large Straight</td><td>Sequence of 5 (e.g., 1-2-3-4-5)</td><td>40</td></tr>
-        <tr><td>Yahtzee</td><td>All 5 dice the same</td><td>50</td></tr>
-        <tr><td>Chance</td><td>Any combo</td><td>Sum of all 5</td></tr>
-      </table>
-      <p><strong>Upper Section Bonus:</strong> Score 63 or more across Ones–Sixes to get +35 bonus points.</p>
-      <p><strong>Extra Yahtzees:</strong> Earn 100 bonus points for each extra Yahtzee (after the first).</p>
+    <div class="feature">
+      <h3>Daily Quests & Milestones</h3>
+      <p>New challenges every day to keep the adventure going.</p>
+      <img src="XP.png" alt="Daily Quests Screenshot">
     </div>
-  </section>
+    <div class="feature">
+      <h3>Themes & Skins</h3>
+      <p>Customize your game with a variety of visual styles and boards.</p>
+      <img src="Winter.png" alt="Themes Screenshot">
+    </div>
+  </div>
+</section>
 
-  <section id="download" class="cta">
-    <h2>Download Now</h2>
-    <img src="logo.png" alt="Yacht-Zee Logo" class="logo">
-    <br>
-    <a href="https://apps.apple.com" target="_blank" class="store-btn">Get it on the App Store</a>
-    <br><br>
-    <img src="appstore-badge.svg" alt="Apple App Store">
-  </section>
+<section id="screenshots">
+  <h2>Screenshots</h2>
+  <div class="swipe-indicator">⬅️ swipe ➡️</div>
+  <div class="gallery-container">
+    <div class="gallery-scroll">
+      <img src="1.png" alt="Home Screenshot">
+      <img src="2.png" alt="Skins Screenshot">
+      <img src="3.png" alt="Battle Captain Screenshot">
+    </div>
+  </div>
+</section>
+<section id="instructions">
+  <h2>🎲 Yahtzee Game Instructions</h2>
+  <div class="instructions">
+    <h3>Objective</h3>
+    <p>Score the most points by rolling combinations with five dice across 13 categories.</p>
 
-  <footer>
-    &copy; 2025 Yacht-Zee. All rights reserved.
-  </footer>
+    <h3>Gameplay</h3>
+    <p>Each player takes 13 turns. Roll up to 3 times per turn, then choose a scoring category. Record your score—even if it's zero. Each category can be used once.</p>
+
+    <h3>Scoring</h3>
+    <table>
+      <tr><th>Category</th><th>Description</th><th>Score</th></tr>
+      <tr><td>Three of a Kind</td><td>At least 3 same dice</td><td>Sum of all 5</td></tr>
+      <tr><td>Four of a Kind</td><td>At least 4 same dice</td><td>Sum of all 5</td></tr>
+      <tr><td>Full House</td><td>3 of a kind + a pair</td><td>25</td></tr>
+      <tr><td>Small Straight</td><td>Sequence of 4 (e.g., 2-3-4-5)</td><td>30</td></tr>
+      <tr><td>Large Straight</td><td>Sequence of 5 (e.g., 1-2-3-4-5)</td><td>40</td></tr>
+      <tr><td>Yahtzee</td><td>All 5 dice the same</td><td>50</td></tr>
+      <tr><td>Chance</td><td>Any combo</td><td>Sum of all 5</td></tr>
+    </table>
+    <p><strong>Upper Section Bonus:</strong> Score 63 or more across Ones–Sixes to get +35 bonus points.</p>
+    <p><strong>Extra Yahtzees:</strong> Earn 100 bonus points for each extra Yahtzee (after the first).</p>
+  </div>
+</section>
+
+<!-- ⭐️ Reviews -->
+<section id="reviews">
+  <h2>What Players Are Saying</h2>
+  <div class="features-scroll">
+    <div class="feature">
+      <p>⭐️⭐️⭐️⭐️⭐️<br>"Addictive and beautifully designed! Love the yacht theme."</p>
+      <small>– CaptainKirk92</small>
+    </div>
+    <div class="feature">
+      <p>⭐️⭐️⭐️⭐️⭐️<br>"The best Yahtzee-style game I've played. Great animations!"</p>
+      <small>– DiceQueen</small>
+    </div>
+    <div class="feature">
+      <p>⭐️⭐️⭐️⭐️<br>"Perfect for quick games or long sessions. 10/10."</p>
+      <small>– GameDock</small>
+    </div>
+  </div>
+</section>
+
+<!-- 📊 Feature Comparison -->
+<section id="compare">
+  <h2>Why Choose Yacht-Zee?</h2>
+  <div class="instructions" style="overflow-x: auto;">
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>Yacht-Zee</th><th>Other Dice Games</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Nautical Themes</td><td>✅</td><td>❌</td></tr>
+        <tr><td>Daily Quests</td><td>✅</td><td>⚠️ Sometimes</td></tr>
+        <tr><td>Online Leaderboard</td><td>✅</td><td>✅</td></tr>
+        <tr><td>Unlockable Dice Skins</td><td>✅</td><td>❌</td></tr>
+        <tr><td>Battle AI Captains</td><td>✅</td><td>❌</td></tr>
+        <tr><td>Custom Game Themes</td><td>✅</td><td>❌</td></tr>
+        <tr><td>One-Time Purchase Option</td><td>✅</td><td>❌</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ❓ FAQ -->
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="instructions">
+    <details>
+      <summary><strong>Is Yacht-Zee free?</strong></summary>
+      <p>Yes! You can play for free, with optional purchases for skins and themes.</p>
+    </details>
+    <details>
+      <summary><strong>Can I play offline?</strong></summary>
+      <p>Absolutely! Enjoy the game anywhere, even without an internet connection.</p>
+    </details>
+    <details>
+      <summary><strong>What’s new in the latest version?</strong></summary>
+      <p>🔥 Pirate and Metal themes just launched! Customize your game even more.</p>
+    </details>
+    <details>
+      <summary><strong>Does Yacht-Zee have ads?</strong></summary>
+      <p>Minimal ads. You can remove them entirely with a one-time purchase.</p>
+    </details>
+    <details>
+      <summary><strong>Is it multiplayer?</strong></summary>
+      <p>You can battle friends in Pass & Play or climb the global leaderboard solo!</p>
+    </details>
+  </div>
+</section>
+
+<!-- 🧑‍💻 About -->
+<section id="about">
+  <h2>About Yacht-Zee</h2>
+  <p style="text-align:center; max-width:700px; margin:auto;">
+    Yacht-Zee was built from the hull up by a solo indie developer—with UI design and creative help from his wife. Together, they’ve brought this nautical-themed dice adventure to life with passion, polish, and a love of classic games.
+  </p>
+</section>
+
+<!-- 🚨 Launch Teaser -->
+<section style="text-align:center; padding: 2rem 1rem; background: #fffbe6; margin-top: 2rem; border-radius: 20px; max-width: 900px; margin-left:auto; margin-right:auto;">
+  <h2 style="color:#b4690e;">🔥 Just Launched!</h2>
+  <p style="font-size:1.2rem;">Set sail with our brand-new <strong>Pirate</strong> and <strong>Metal</strong> themes—available now in the Dice Skins shop!</p>
+</section>
+
+<!-- 📩 Email Signup -->
+<section id="newsletter" class="cta">
+  <h2>Join the Captain's Crew</h2>
+  <p>Get updates on new themes, features, and exclusive bonuses!</p>
+  <form action="#" method="post" style="margin-top: 1rem;">
+    <input type="email" name="email" placeholder="Enter your email" required style="padding: 0.6rem; border-radius: 8px; width: 240px; max-width: 80%;">
+    <button type="submit" class="store-btn" style="margin-left: 0.5rem;">Subscribe</button>
+  </form>
+</section>
+
+<!-- Download CTA -->
+<section id="download" class="cta">
+  <h2>Download Now</h2>
+  <img src="logo.png" alt="Yacht-Zee Logo" class="logo">
+  <br>
+  <a href="https://apps.apple.com" target="_blank" class="store-btn">Get it on the App Store</a>
+  <br><br>
+  <img src="appstore-badge.svg" alt="Apple App Store">
+</section>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 Yacht-Zee. All rights reserved.
+</footer>
 
 </body>
 </html>
