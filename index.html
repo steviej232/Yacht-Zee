@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yacht-Zee: Dice Games</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #146e8b;
@@ -13,20 +13,46 @@
       --dark: #0b3c4c;
       --white: #ffffff;
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Rubik', sans-serif;
-      background: var(--light);
-      color: var(--dark);
+    * {
+      box-sizing: border-box;
       scroll-behavior: smooth;
     }
+    body {
+      margin: 0;
+      font-family: 'League Spartan', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+    }
+
+    /* Header parallax effect */
+    header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      animation: fadeIn 1s ease-out;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+      opacity: 0.95;
+      animation: fadeIn 1.2s ease-out;
+    }
+
     nav {
       position: sticky;
       top: 0;
       background: var(--white);
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
       padding: 0.75rem;
@@ -37,36 +63,21 @@
       color: var(--dark);
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     nav a:hover {
       color: var(--primary);
     }
-    header {
-      background: var(--primary);
-      color: var(--white);
-      padding: 3rem 1rem 2rem;
-      text-align: center;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1rem;
-      max-width: 500px;
-      margin: auto;
-      opacity: 0.9;
-    }
+
     section {
       max-width: 1000px;
       margin: 2rem auto;
       padding: 0 1rem;
+      animation: fadeIn 1.4s ease-out;
     }
+
     h2 {
-      font-size: 1.75rem;
+      font-size: 2rem;
       text-align: center;
       margin-bottom: 1.5rem;
     }
@@ -85,8 +96,8 @@
       max-width: 280px;
       flex: 0 0 auto;
       background: var(--white);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       padding: 1rem;
       scroll-snap-align: start;
       text-align: center;
@@ -96,21 +107,38 @@
       max-height: 200px;
       object-fit: contain;
       margin-top: 0.75rem;
-      border-radius: 8px;
+      border-radius: 12px;
     }
 
     /* Screenshot scroll */
+    .gallery-container {
+      position: relative;
+    }
     .gallery-scroll {
       display: flex;
       overflow-x: auto;
       gap: 1rem;
       -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+      scroll-padding-left: 1rem;
     }
     .gallery-scroll img {
       flex: 0 0 auto;
-      width: 280px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      width: 90vw;
+      max-width: 650px;
+      aspect-ratio: 2778 / 1284;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      scroll-snap-align: center;
+    }
+
+    .swipe-indicator {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--dark);
+      margin-top: -10px;
+      animation: bounce 1.5s infinite;
     }
 
     /* CTA section */
@@ -131,9 +159,13 @@
       color: var(--white);
       text-decoration: none;
       padding: 0.75rem 1.5rem;
-      border-radius: 5px;
+      border-radius: 10px;
       font-size: 1.1rem;
       margin-top: 1rem;
+      transition: background 0.3s ease;
+    }
+    .cta a.store-btn:hover {
+      background: #0b5166;
     }
 
     footer {
@@ -142,26 +174,43 @@
       background: var(--primary);
       color: var(--white);
       font-size: 0.8rem;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
     }
 
-    /* Instructions */
     .instructions {
       background: var(--white);
-      padding: 1rem;
-      border-radius: 12px;
+      padding: 1.5rem;
+      border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     .instructions table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      margin-top: 1rem;
     }
     .instructions th, td {
       border: 1px solid #ccc;
-      padding: 4px;
+      padding: 6px;
       text-align: left;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(10px); }
+    }
+
+    @media (max-width: 600px) {
+      nav { flex-wrap: wrap; }
+      header h1 { font-size: 2.2rem; }
+      .gallery-scroll img { width: 100%; }
     }
   </style>
 </head>
@@ -207,10 +256,13 @@
 
   <section id="screenshots">
     <h2>Screenshots</h2>
-    <div class="gallery-scroll">
-      <img src="1.png" alt="Home Screenshot">
-      <img src="2.png" alt="Skins Screenshot">
-      <img src="3.png" alt="Battle Captain Screenshot">
+    <div class="swipe-indicator">⬅️ swipe ➡️</div>
+    <div class="gallery-container">
+      <div class="gallery-scroll">
+        <img src="1.png" alt="Home Screenshot">
+        <img src="2.png" alt="Skins Screenshot">
+        <img src="3.png" alt="Battle Captain Screenshot">
+      </div>
     </div>
   </section>
 
@@ -244,7 +296,8 @@
     <img src="logo.png" alt="Yacht-Zee Logo" class="logo">
     <br>
     <a href="https://apps.apple.com" target="_blank" class="store-btn">Get it on the App Store</a>
-        <img src="appstore-badge.svg" alt="Apple App Store">
+    <br><br>
+    <img src="appstore-badge.svg" alt="Apple App Store">
   </section>
 
   <footer>
