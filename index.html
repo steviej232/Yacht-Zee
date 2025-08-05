@@ -54,24 +54,6 @@
       animation: fadeIn 1.2s ease-out;
     }
 
-    /* wave divider */
-    .wave-divider {
-      display: block;
-      width: 100%;
-      margin-top: -1px;
-    }
-
-    section {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      animation: fadeIn 1.4s ease-out;
-    }
-    h2 {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
 
 /* full-res horizontal scroller */
 .features-scroll {
@@ -79,23 +61,25 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 1rem;
-  padding: 1rem 0;
+  padding: 1rem;
   -webkit-overflow-scrolling: touch;
-  scroll-padding-left: 1rem;
 }
+
 .features-scroll img {
   flex: 0 0 auto;
-  width: 1320px;
-  height: 2868px;
-  object-fit: contain;
+  width: 90vw;         /* take up 90% of the viewport width */
+  max-width: 500px;    /* but never exceed 500px on desktop */
+  height: auto;        /* preserve aspect ratio */
   scroll-snap-align: center;
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   transition: transform .3s ease;
 }
+
 .features-scroll img:hover {
   transform: scale(1.02);
 }
+
 
 
     /* video trailer */
@@ -227,9 +211,9 @@
 <section id="trailer">
   <h2>Watch Yacht-Zee in Action</h2>
   <video
-    src="/assets/App Listing.mp4"
+    src="App-Listing.mp4"
     controls autoplay muted loop
-    poster="App Listing.mp4"
+    poster="App-Listing.mp4"
   >
     Sorry, your browser doesn’t support embedded videos.
   </video>
