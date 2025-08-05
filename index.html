@@ -13,45 +13,33 @@
       --dark: #0b3c4c;
       --white: #ffffff;
     }
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'League Spartan', sans-serif;
       background: var(--light);
       color: var(--dark);
     }
-
     nav {
-      position: sticky;
-      top: 0;
+      position: sticky; top: 0;
       background: var(--white);
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
+      display: flex; justify-content: center; gap: 1rem;
       padding: 0.75rem;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       z-index: 100;
     }
-    nav a {
-      color: var(--dark);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-    nav a:hover {
-      color: var(--primary);
-    }
+    nav a { color: var(--dark); text-decoration: none; font-weight: 600; }
+    nav a:hover { color: var(--primary); }
 
     header {
+      position: relative;
       background: var(--primary);
       color: var(--white);
       padding: 3rem 1rem 2rem;
       text-align: center;
       border-bottom-left-radius: 30px;
       border-bottom-right-radius: 30px;
+      overflow: hidden;
     }
     header h1 {
       font-size: 2.8rem;
@@ -66,19 +54,26 @@
       animation: fadeIn 1.2s ease-out;
     }
 
+    /* wave divider */
+    .wave-divider {
+      display: block;
+      width: 100%;
+      margin-top: -1px;
+    }
+
     section {
       max-width: 1000px;
       margin: 2rem auto;
       padding: 0 1rem;
       animation: fadeIn 1.4s ease-out;
     }
-
     h2 {
       font-size: 2rem;
       text-align: center;
       margin-bottom: 1.5rem;
     }
 
+    /* feature cards */
     .features-scroll {
       display: flex;
       overflow-x: auto;
@@ -88,8 +83,7 @@
       -webkit-overflow-scrolling: touch;
     }
     .feature {
-      min-width: 240px;
-      max-width: 280px;
+      min-width: 240px; max-width: 280px;
       flex: 0 0 auto;
       background: var(--white);
       border-radius: 16px;
@@ -97,6 +91,11 @@
       padding: 1rem;
       scroll-snap-align: start;
       text-align: center;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
     .feature img {
       width: 100%;
@@ -106,34 +105,64 @@
       border-radius: 12px;
     }
 
-    .gallery-container {
-      position: relative;
-    }
+    /* screenshot gallery */
+    .gallery-container { position: relative; }
     .gallery-scroll {
       display: flex;
       overflow-x: auto;
       gap: 1rem;
-      -webkit-overflow-scrolling: touch;
-      scroll-snap-type: x mandatory;
       padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
       scroll-padding-left: 1rem;
     }
     .gallery-scroll img {
       flex: 0 0 auto;
-      width: 90vw;
-      max-width: 650px;
-      aspect-ratio: 2778 / 1284;
+      width: 90vw; max-width: 650px;
+      aspect-ratio: 2778/1284;
       border-radius: 20px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
       scroll-snap-align: center;
+      transition: transform .3s ease;
     }
-
+    .gallery-scroll img:hover {
+      transform: scale(1.02);
+    }
     .swipe-indicator {
       text-align: center;
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: var(--dark);
       margin-top: -10px;
       animation: bounce 1.5s infinite;
+    }
+
+    /* video trailer */
+    #trailer video {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    /* sticky play-trailer button */
+    .play-trailer {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 1.2rem;
+      padding: 0.75rem 1rem;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-decoration: none;
+      z-index: 200;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .play-trailer:hover {
+      background: #0b5166;
     }
 
     .cta {
@@ -158,9 +187,7 @@
       margin-top: 1rem;
       transition: background 0.3s ease;
     }
-    .cta a.store-btn:hover {
-      background: #0b5166;
-    }
+    .cta a.store-btn:hover { background: #0b5166; }
 
     footer {
       text-align: center;
@@ -179,15 +206,13 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       font-size: 1rem;
     }
-
     .instructions table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.95rem;
       margin-top: 1rem;
     }
-
-    .instructions th, td {
+    .instructions th, .instructions td {
       border: 1px solid #ccc;
       padding: 6px;
       text-align: left;
@@ -195,18 +220,18 @@
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes bounce {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(10px); }
+      0%,100% { transform: translateX(0); }
+      50%     { transform: translateX(10px); }
     }
 
     @media (max-width: 600px) {
       nav { flex-wrap: wrap; }
       header h1 { font-size: 2.2rem; }
       .gallery-scroll img { width: 100%; }
+      .play-trailer { font-size: 1rem; padding: 0.6rem 0.8rem; }
     }
   </style>
 </head>
@@ -215,37 +240,44 @@
 <nav>
   <a href="#features">Features</a>
   <a href="#screenshots">Screenshots</a>
-  <a href="#instructions">Yahtzee Rules</a>
+  <a href="#trailer">Trailer</a>
   <a href="#download">Download</a>
 </nav>
 
 <header>
   <h1>Yacht-Zee: Dice Games</h1>
   <p>Set sail on a thrilling yacht-themed dice adventure! Compete online, earn achievements, and conquer daily quests!</p>
+  <!-- wave divider -->
+  <svg class="wave-divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80"><path fill="#f0faff" d="M0,32L60,48C120,64,240,96,360,96C480,96,600,64,720,48C840,32,960,32,1080,48C1200,64,1320,96,1380,112L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"/></svg>
 </header>
 
 <section id="features">
   <h2>Features</h2>
   <div class="features-scroll">
     <div class="feature">
-      <h3>Online Leaderboards</h3>
-      <p>See how you rank against players around the world in real-time.</p>
-      <img src="Leaderboard.png" alt="Leaderboard Screenshot">
+      <h3>Earn Coins & Customize</h3>
+      <p>Win games to earn coins, unlock new dice & yacht skins.</p>
+      <img src="/assets/4.png" alt="Earn coins & customize">
     </div>
     <div class="feature">
-      <h3>Unlockable Achievements</h3>
-      <p>Complete milestones and quests to unlock exclusive rewards.</p>
-      <img src="Achievement.png" alt="Achievements Screenshot">
+      <h3>Global Leaderboards</h3>
+      <p>Climb the ranks and see your worldwide position.</p>
+      <img src="/assets/5.png" alt="Global ranks">
     </div>
     <div class="feature">
-      <h3>Daily Quests & Milestones</h3>
-      <p>New challenges every day to keep the adventure going.</p>
-      <img src="XP.png" alt="Daily Quests Screenshot">
+      <h3>Beat the Captain</h3>
+      <p>Challenge AI captains for bonus rewards & bragging rights.</p>
+      <img src="/assets/6.png" alt="Beat the captain">
     </div>
     <div class="feature">
-      <h3>Themes & Skins</h3>
-      <p>Customize your game with a variety of visual styles and boards.</p>
-      <img src="Winter.png" alt="Themes Screenshot">
+      <h3>Fuel Your Voyage</h3>
+      <p>Win big rolls to collect fuel and power your journey.</p>
+      <img src="/assets/2.png" alt="Fuel your voyage">
+    </div>
+    <div class="feature">
+      <h3>Daily Challenges & Rewards</h3>
+      <p>Unlock chests, free rolls, and more every single day.</p>
+      <img src="/assets/3.png" alt="Daily challenges & rewards">
     </div>
   </div>
 </section>
@@ -255,38 +287,52 @@
   <div class="swipe-indicator">⬅️ swipe ➡️</div>
   <div class="gallery-container">
     <div class="gallery-scroll">
-      <img src="1.png" alt="Home Screenshot">
-      <img src="2.png" alt="Skins Screenshot">
-      <img src="3.png" alt="Battle Captain Screenshot">
+      <img src="/assets/4.png" alt="Earn coins & customize">
+      <img src="/assets/5.png" alt="Global ranks">
+      <img src="/assets/6.png" alt="Beat the captain">
+      <img src="/assets/2.png" alt="Fuel your voyage">
+      <img src="/assets/3.png" alt="Daily challenges & rewards">
     </div>
   </div>
 </section>
+
+<section id="trailer">
+  <h2>Watch Yacht-Zee in Action</h2>
+  <video
+    src="/assets/App Listing.mp4"
+    controls autoplay muted loop
+    poster="/assets/4.png"
+  >
+    Sorry, your browser doesn’t support embedded videos.
+  </video>
+</section>
+
+<!-- sticky trailer CTA -->
+<a href="#trailer" class="play-trailer">▶ Watch Trailer</a>
+
 <section id="instructions">
   <h2>🎲 Yahtzee Game Instructions</h2>
   <div class="instructions">
     <h3>Objective</h3>
     <p>Score the most points by rolling combinations with five dice across 13 categories.</p>
-
     <h3>Gameplay</h3>
-    <p>Each player takes 13 turns. Roll up to 3 times per turn, then choose a scoring category. Record your score—even if it's zero. Each category can be used once.</p>
-
+    <p>Each player takes 13 turns. Roll up to 3 times per turn, then choose a scoring category. Record your score—even if it's zero.</p>
     <h3>Scoring</h3>
     <table>
       <tr><th>Category</th><th>Description</th><th>Score</th></tr>
       <tr><td>Three of a Kind</td><td>At least 3 same dice</td><td>Sum of all 5</td></tr>
       <tr><td>Four of a Kind</td><td>At least 4 same dice</td><td>Sum of all 5</td></tr>
       <tr><td>Full House</td><td>3 of a kind + a pair</td><td>25</td></tr>
-      <tr><td>Small Straight</td><td>Sequence of 4 (e.g., 2-3-4-5)</td><td>30</td></tr>
-      <tr><td>Large Straight</td><td>Sequence of 5 (e.g., 1-2-3-4-5)</td><td>40</td></tr>
+      <tr><td>Small Straight</td><td>Sequence of 4</td><td>30</td></tr>
+      <tr><td>Large Straight</td><td>Sequence of 5</td><td>40</td></tr>
       <tr><td>Yahtzee</td><td>All 5 dice the same</td><td>50</td></tr>
       <tr><td>Chance</td><td>Any combo</td><td>Sum of all 5</td></tr>
     </table>
-    <p><strong>Upper Section Bonus:</strong> Score 63 or more across Ones–Sixes to get +35 bonus points.</p>
-    <p><strong>Extra Yahtzees:</strong> Earn 100 bonus points for each extra Yahtzee (after the first).</p>
+    <p><strong>Upper Section Bonus:</strong> 63+ points = +35 bonus.</p>
+    <p><strong>Extra Yahtzees:</strong> +100 points each after the first.</p>
   </div>
 </section>
 
-<!-- ⭐️ Reviews -->
 <section id="reviews">
   <h2>What Players Are Saying</h2>
   <div class="features-scroll">
@@ -305,10 +351,9 @@
   </div>
 </section>
 
-<!-- 📊 Feature Comparison -->
 <section id="compare">
   <h2>Why Choose Yacht-Zee?</h2>
-  <div class="instructions" style="overflow-x: auto;">
+  <div class="instructions" style="overflow-x:auto;">
     <table>
       <thead>
         <tr><th>Feature</th><th>Yacht-Zee</th><th>Other Dice Games</th></tr>
@@ -320,64 +365,53 @@
         <tr><td>Unlockable Dice Skins</td><td>✅</td><td>❌</td></tr>
         <tr><td>Battle AI Captains</td><td>✅</td><td>❌</td></tr>
         <tr><td>Custom Game Themes</td><td>✅</td><td>❌</td></tr>
-        <tr><td>One-Time Purchase Option</td><td>✅</td><td>❌</td></tr>
+        <tr><td>One-Time Purchase</td><td>✅</td><td>❌</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- ❓ FAQ -->
 <section id="faq">
   <h2>Frequently Asked Questions</h2>
   <div class="instructions">
-    <details>
-      <summary><strong>Is Yacht-Zee free?</strong></summary>
-      <p>Yes! You can play for free, with optional purchases for skins and themes.</p>
+    <details><summary><strong>Is Yacht-Zee free?</strong></summary>
+      <p>Yes! You can play for free, with optional in-app purchases.</p>
     </details>
-    <details>
-      <summary><strong>Can I play offline?</strong></summary>
-      <p>Absolutely! Enjoy the game anywhere, even without an internet connection.</p>
+    <details><summary><strong>Offline play?</strong></summary>
+      <p>Absolutely—enjoy anywhere, no network needed.</p>
     </details>
-    <details>
-      <summary><strong>What’s new in the latest version?</strong></summary>
-      <p>🔥 Pirate and Metal themes just launched! Customize your game even more.</p>
+    <details><summary><strong>New in the latest version?</strong></summary>
+      <p>Pirate & Metal themes just launched!</p>
     </details>
-    <details>
-      <summary><strong>What game modes?</strong></summary>
-      <p>You can play classic Yacht-Zee, vs the AI and 6 dice Yacht-Zee and Triple Yacht-Zee coming soon!</p>
-    </details>
-    <details>
-      <summary><strong>Is it multiplayer?</strong></summary>
-      <p>Not yet, if there is strong multiplayer demand we will work on adding it.  Let us know via email if that is a feature you would like!</p>
+    <details><summary><strong>Multiplayer?</strong></summary>
+      <p>Not yet—your feedback can make it happen!</p>
     </details>
   </div>
 </section>
 
-<!-- 🧑‍💻 About -->
 <section id="about">
   <h2>About Yacht-Zee</h2>
   <p style="text-align:center; max-width:700px; margin:auto;">
-    Yacht-Zee was built from the hull up by a solo indie developer—with UI design and creative help from his wife. Together, they’ve brought this nautical-themed dice adventure to life with passion, polish, and a love of classic games.
+    Yacht-Zee was built from the hull up by a solo indie developer—with creative and UI help from his wife—bringing nautical dice adventure to life.
   </p>
 </section>
 
-<!-- 🚨 Launch Teaser -->
-<section style="text-align:center; padding: 2rem 1rem; background: #fffbe6; margin-top: 2rem; border-radius: 20px; max-width: 900px; margin-left:auto; margin-right:auto;">
+<section style="text-align:center; padding: 2rem 1rem; background: #fffbe6; margin: 2rem auto; border-radius: 20px; max-width: 900px;">
   <h2 style="color:#b4690e;">🔥 Just Launched!</h2>
-  <p style="font-size:1.2rem;">Set sail with our brand-new <strong>Pirate</strong> and <strong>Metal</strong> themes—available now in the Dice Skins shop!</p>
+  <p style="font-size:1.2rem;">
+    Set sail with our brand-new <strong>Pirate</strong> and <strong>Metal</strong> themes—available now in the Dice Skins shop!
+  </p>
 </section>
 
-<!-- Download CTA -->
 <section id="download" class="cta">
   <h2>Download Now</h2>
-  <img src="logo.png" alt="Yacht-Zee Logo" class="logo">
+  <img src="/assets/logo.png" alt="Yacht-Zee Logo" class="logo">
   <br>
   <a href="https://apps.apple.com" target="_blank" class="store-btn">Get it on the App Store</a>
   <br><br>
-  <img src="appstore-badge.svg" alt="Apple App Store">
+  <img src="/assets/appstore-badge.svg" alt="Apple App Store">
 </section>
 
-<!-- Footer -->
 <footer>
   &copy; 2025 Yacht-Zee. All rights reserved.
 </footer>
